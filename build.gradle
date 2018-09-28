@@ -1,6 +1,6 @@
 buildscript {
     ext {
-        springBootVersion = '2.0.1.RELEASE'
+        springBootVersion = '1.5.3.RELEASE'
     }
     repositories {
         mavenCentral()
@@ -27,12 +27,21 @@ repositories {
 dependencies {
     compile('org.springframework.boot:spring-boot-starter-web')
     compile('org.springframework.boot:spring-boot-starter-data-jpa')
-    compileOnly('org.projectlombok:lombok')
-    compile ('org.postgresql:postgresql:42.2.5')
-    compile('io.springfox:springfox-swagger2:2.8.0')
-    compile('io.springfox:springfox-swagger-ui:2.8.0')
-    compile('org.apache.commons:commons-csv:1.5')
-    compile ('com.h2database:h2:1.0.60')
+   	compile('org.apache.commons:commons-lang3:3.5')
+    compile('org.springframework.boot:spring-boot-devtools')
+    compile 'org.projectlombok:lombok:1.16.18'
+    compile('org.modelmapper:modelmapper:0.7.5')
+    //compile ('org.postgresql:postgresql:42.2.5')
+    compile('io.springfox:springfox-swagger2:2.7.0')
+    compile('io.springfox:springfox-swagger-ui:2.7.0')
+    compile('org.apache.commons:commons-csv:1.4')
+    compile('org.apache.logging.log4j:log4j-core:2.8.2')
+   	compile('org.apache.logging.log4j:log4j-api:2.8.2')
+   	compile('com.baidu.unbiz:fluent-validator:1.0.9'){
+   		exclude group: 'org.slf4j', module: 'slf4j-log4j12' 
+   	}
+   	compile('cz.jirutka.rsql:rsql-parser:2.0.0')
+    runtime('com.h2database:h2:1.0.60')
     testCompile('org.springframework.boot:spring-boot-starter-test')
 }
 
