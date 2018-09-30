@@ -17,7 +17,7 @@ import com.base.entity.AbstractEntityClass;
 
 @Entity
 @DynamicUpdate
-@Table(name = "filme", uniqueConstraints = @UniqueConstraint(name = "filme_ukey", columnNames = {
+@Table(name = "Filme", uniqueConstraints = @UniqueConstraint(name = "filme_ukey", columnNames = {
 		"year","title","studios" }))
 @GenericGenerator(
         name = "generator",

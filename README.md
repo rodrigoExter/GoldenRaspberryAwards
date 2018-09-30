@@ -65,3 +65,44 @@ dependencies {
 }
 
 ```
+
+## Banco de dados H2
+
+H2 é um banco de dados escrito em java, muito rápido, free e com codigo fonte incluído.
+Para utiliza-lo, deve adicionar na dependência do projeto o seguinte: com.h2database:h2
+
+Após adicionar e baixar as dependências, deve ser configurado o arquivo application:properties, conforme abaixo:
+
+//H2
+spring.h2.console.enabled=true
+spring.h2.console.path=/h2
+
+//Datasource
+spring.datasource.url=jdbc:h2:file:~/testdb
+spring.datasource.username=h2sa
+spring.datasource.password=admin
+spring.datasource.driver-class-name=org.h2.Driver
+spring.jpa.hibernate.ddl-auto=update
+
+Em seguida, para acessar o console, basta abrir o browser e digitar o seguinte caminho:
+
+localhost:8080/h2 e será aberta uma tela para acessar o banco e em seguida, terá o devido acesso.
+
+Importante lembrar que ele será executado na execução da aplicação do projeto.
+
+## Projeto
+
+Foram criadas estruturas padrões para controlar o CRUD do projeto.
+
+## Teste Unitário
+
+### Mockito
+
+Teste de controllers são aqueles que validam o comportamento do gerenciamento entre as camadas de modelo (Model) e visão (view), com isso, 
+essa camada não deve testar regra de negócio, e sim conversões de formatos do model para view, disponibilização de api, consumo de api, entre outros.
+Pensando nisso, o Spring Boot disponibiliza algumas anotações para facilitar os testes dessa camada.
+
+Para utilizar esse recurso, é necessário adicionar a dependência:  org.springframework.boot:spring-boot-starter-test:<VERSAO_RELEASE>;
+
+
+

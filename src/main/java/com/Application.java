@@ -1,8 +1,10 @@
 package com;
 
+import org.h2.server.web.WebServlet;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.builder.SpringApplicationBuilder;
+import org.springframework.boot.web.servlet.ServletRegistrationBean;
 import org.springframework.boot.web.support.SpringBootServletInitializer;
 import org.springframework.context.MessageSource;
 import org.springframework.context.annotation.Bean;
@@ -39,6 +41,13 @@ public class Application extends SpringBootServletInitializer{
 		// messageSource.setBasename("classpath:messages");
 		// messageSource.setDefaultEncoding("UTF-8");
 		return messageSource;
+	}
+	
+	@Bean
+	public ServletRegistrationBean h2servletRegistration() {
+	    ServletRegistrationBean registration = new ServletRegistrationBean(new WebServlet());
+	    registration.addUrlMappings("/h2/*");
+	    return registration;
 	}
 
 	@Bean

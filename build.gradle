@@ -42,6 +42,10 @@ dependencies {
    	}
    	compile('cz.jirutka.rsql:rsql-parser:2.0.0')
     runtime('com.h2database:h2:1.0.60')
-    testCompile('org.springframework.boot:spring-boot-starter-test')
+    
+    testCompile 'com.h2database:h2:1.4.195'   
+   	testCompile 'org.jacoco:org.jacoco.agent:0.7.8'
+   	testCompile 'org.springframework.boot:spring-boot-starter-test'
+   	testCompile 'org.mockito:mockito-core:2.7.22'
 }
 
